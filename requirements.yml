@@ -1,0 +1,5 @@
+---
+collections:
+  - type: git
+    name: https://github.com/ansible-collections/community.sops.git
+    version: main
