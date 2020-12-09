@@ -1,5 +1,5 @@
 ---
-plugin: aws_ec2
+plugin: amazon.aws.aws_ec2
 regions:
     - ${region}
 hostnames:
