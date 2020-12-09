@@ -71,6 +71,8 @@
         profile: "{{ aws_profile }}"
         state: absent
         name: "{{ instance_name }}"
+        filters:
+          "tag:Application": "{{ tags.Application }}"
         wait: true
 
 
