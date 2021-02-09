@@ -19,7 +19,7 @@ badges: []
 # Short description of this project
 description: |-
 
-  This is a terraform module that creates an RDS instance and then creates
+  This is a terraform module that creates a Postgresql RDS instance and then creates
   databases and users inside it.
 
 # How to use this project
@@ -29,6 +29,7 @@ usage: |-
   module "rds" {
     source = "git::https://gitlab.com/guardianproject-ops/terraform-aws-rds-multiple-dbs?ref=master"
 
+    # note, currently only postgresql is supported
     engine               = "postgres"
     instance_class       = var.instance_class
     engine_version       = "11.2"
@@ -74,7 +75,7 @@ related: []
 include:
   - "docs/terraform.md"
 
-funded_by_cdr: false
+funded_by_cdr: true
 
 # Contributors to this project
 contributors:
