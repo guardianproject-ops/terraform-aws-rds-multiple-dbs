@@ -2,7 +2,7 @@
 # It also wraps a local ansible execution to provision multiple databases in the postgres
 # RDS instance, when var.provision_databases = true
 module "kms_key_rds" {
-  source = "git::https://github.com/cloudposse/terraform-aws-kms-key.git?ref=tags/0.8.0"
+  source = "git::https://github.com/cloudposse/terraform-aws-kms-key.git?ref=tags/0.9.0"
 
   context                 = module.this.context
   description             = "KMS key for rds"
@@ -196,7 +196,9 @@ resource "local_file" "ansible_playbook_db" {
 }
 
 module "label_provisioner" {
-  source = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.19.2"
+  source  = "cloudposse/label/null"
+  version = "0.24.1"
+
 
   context    = module.this.context
   attributes = concat(["provisioner"], var.attributes)
@@ -204,7 +206,7 @@ module "label_provisioner" {
 }
 
 module "provisioner_session_manager" {
-  source = "git::https://gitlab.com/guardianproject-ops/terraform-aws-session-manager-instance-policy?ref=tags/0.3.3"
+  source = "git::https://gitlab.com/guardianproject-ops/terraform-aws-session-manager-instance-policy?ref=tags/0.3.4"
 
   name           = module.this.name
   namespace      = module.this.namespace
@@ -215,7 +217,7 @@ module "provisioner_session_manager" {
 }
 
 module "provisioner_instance_role_attachment" {
-  source = "git::https://gitlab.com/guardianproject-ops/terraform-aws-iam-instance-role-policy-attachment?ref=tags/2.1.0"
+  source = "git::https://gitlab.com/guardianproject-ops/terraform-aws-iam-instance-role-policy-attachment?ref=tags/2.1.1"
 
   name        = module.this.name
   namespace   = module.this.namespace
