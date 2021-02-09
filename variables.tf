@@ -97,10 +97,13 @@ variable "databases" {
 }
 
 variable "database_users" {
+  description = "These values are passed to the ansible community.general.postgresql_user module, refer to the ansible docs."
   type = list(object({
-    db       = string,
-    username = string,
-    password = string
+    db              = string,
+    username        = string,
+    password        = string,
+    priv            = string,
+    role_attr_flags = string
   }))
 }
 
