@@ -43,6 +43,8 @@
 
 
 
+ARCHIVED. This project is no longer receiving updates.
+
 This is a terraform module that creates a Postgresql RDS instance and then creates
 databases and users inside it.
 
